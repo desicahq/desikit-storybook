@@ -3,11 +3,11 @@ import React from 'react';
 import { Status } from './Status';
 
 export default {
-  title: 'Status',
+  title: 'Components/Status',
   component: Status,
   parameters: { 
     docs: { 
-      page: 'Status.mdx' 
+      page: Status.mdx
     } 
   }
 };

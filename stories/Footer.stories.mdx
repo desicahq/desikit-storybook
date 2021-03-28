@@ -1,0 +1,16 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Footer } from './Footer';
+
+<Meta title="Footer" component={Footer} />
+
+# Footer
+
+This is the footer that sits at the bottom of all Desica websites, it provides helpful, relevant links to Desica products and services. It alsow shows the system status using the `Status` component.
+
+export const Template = () => <Footer />
+
+<Canvas>
+    <Story name="Base">
+    {Template.bind({})}
+   </Story>
+</Canvas>
