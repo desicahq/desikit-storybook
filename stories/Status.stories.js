@@ -7,7 +7,7 @@ export default {
   component: Status,
   parameters: { 
     docs: { 
-      page: Status.mdx
+      page: Status.stories.mdx
     } 
   }
 };

@@ -1,0 +1,36 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { linkTo } from '@storybook/addon-links';
+import { Status } from './Status';
+
+<Meta title="Components/Status" component={Status} />
+
+# Status
+This is the status badge that sits at the bottom of the `footer` on all Desica websites. It provides an at a glance view on the status of all Desica websites and services.
+
+export const Template = () => <Status up="true" label="All systems normal" />
+
+<Canvas>
+    <Story name="Base">
+    {Template.bind({})}
+   </Story>
+</Canvas>
+
+### Usage
+The status component should always link to [status.desica.uk](https://status.desica.uk/). We use [swr](https://swr.vercel.app/) to fetch the data from `https://status.desica.uk/index.json`. We then parse the data like this:
+```js
+import useSWR from 'swr'
+
+function Status () {
+  const fetcher = (args) => fetch(args).then(res => res.json())
+
+  const { data, error } = useSWR('https://status.desica.uk/index.json', fetcher)
+
+  if (error) return <div className="flex rounded-md border border-accents-2 p-2 px-3"><p className="mr-1">Status:</p><p className="text-red"><b>⟳</b> Failed to load status</p></div>
+  if (!data) return <div className="flex rounded-md border border-accents-2 p-2 px-3"><p className="mr-1">Status:</p><p className="text-amber"><b>⟳</b> Loading system status</p></div>
+  if (data.summaryStatus === "ok") return <div className="flex rounded-md border border-accents-2 p-2 px-3"><p className="mr-1">Status:</p><p className="text-blue"><small>⬤</small> All systems normal</p></div>
+  if (data.summaryStatus === "disrupted") return <div className="flex rounded-md border border-accents-2 p-2 px-3"><p className="mr-1">Status:</p><p className="text-amber"><small>⬤</small> Partially disrupted</p></div>
+
+  return <div className="flex rounded-md border border-accents-2 p-2 px-3"><p className="mr-1">Status:</p><p className="text-red"><b>⟳</b> Failed to load status</p></div>
+}
+```
+You can now accses the component by using `<Status />`. See this in the wild on [bitbucket](https://bitbucket.org/desica-dev/desica/src/dev/components/footer.tsx).
