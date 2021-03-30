@@ -11,8 +11,12 @@ jobs:
   chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
+    name: Chromatic deployment
     # Job steps
     steps:
+      - uses: mstachniuk/ci-skip@v1
+        with:
+          fail-fast: true
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: yarn
