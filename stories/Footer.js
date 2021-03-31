@@ -7,7 +7,7 @@ export const Footer = () =>
           <Link href="/">
             <a className="flex flex-initial items-center font-bold md:mr-24">
               <span className="rounded-full mr-2">
-                <img src="https://static.desica.uk/hotlink-ok/Logo-White%40Transparent.png" height="32px" width="32px"></img>
+                <img src="https://static.desica.uk/hotlink-ok/Logo-White%40Transparent.png" style={{maxHeight: 'none'}} height="32px" width="32px"></img>
               </span>
               <span>Desica</span>
             </a>
