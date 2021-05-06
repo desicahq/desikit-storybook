@@ -1,2 +1,2 @@
 # Welcome to Desikit
-This is the Desica design system, located at [go.desica.uk/story](https://go.desica.uk/story).
+This is the Desica design system, available at [go.desica.uk/story](https://go.desica.uk/story).
