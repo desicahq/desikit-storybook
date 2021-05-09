@@ -3,7 +3,32 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 <Meta title="Welcome" />
 
 # Welcome to Desikit
-This is the Desica design system, located at [desicahq/desikit-storybook](https://github.com/desicahq/desikit-storybook) on Github.
+This is the Desica design system, located at [desicahq/desikit](https://github.com/desicahq/desikit) on Github. This repo is located at [desicahq/desikit-storybook](https://github.com/desicahq/desikit-storybook) on github.
 
-### Getting started
-To get started, clone the getting started repo by running `git clone https://github.com/desicahq/starter --bare`, which will give you a nextjs project complete with the tailwind and postcss config files you'll need to get started. Be sure to check here regularly, as we will be publishing regular updates.
+### Add the registry
+To get started, you'll need to be a member of the [desicahq](https://github.com/desicahq) on github. Authenticate with the [gpr](https://github.com/features/packages) by adding the following line in your `.npmrc` file:
+```c
+@desicahq:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=
+```
+Your `authToken` should be a personal access token with permission to install packages.
+
+### Install desikit
+To install Desikit, you'll need to run
+```bash
+# With npm
+npm i @desicahq/desikit
+
+# With yarn
+yarn add @desicahq/desikit
+```
+
+### Import the components
+Here's an example of how to import the components in a nextjs project
+```js
+import { Footer } from '@desicahq/desikit'
+
+function myComponent () {
+    return <Footer />
+}
+```
